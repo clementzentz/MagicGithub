@@ -13,7 +13,7 @@ public class UserRepository {
         this.apiService = apiService;
     }
 
-    public List<User> getUsers() {
+    public List<User> getCustomers() {
         // TODO: A modifier
         return apiService.getUsers();
     }

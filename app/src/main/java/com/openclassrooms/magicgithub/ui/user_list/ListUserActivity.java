@@ -2,7 +2,6 @@ package com.openclassrooms.magicgithub.ui.user_list;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -53,7 +52,7 @@ public class ListUserActivity extends BaseActivity implements UserListAdapter.Li
     }
 
     private void loadData() {
-        adapter.updateList(getUserRepository().getUsers());
+        adapter.updateList(getUserRepository().getCustomers());
     }
 
     // ACTIONS ---

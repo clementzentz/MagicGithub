@@ -31,7 +31,7 @@ public class UserListInstrumentedTest {
 
     @Before
     public void setup() {
-        currentUsersSize = mActivityRule.getActivity().getUserRepository().getUsers().size();
+        currentUsersSize = mActivityRule.getActivity().getUserRepository().getCustomers().size();
     }
 
     @Test

@@ -1,6 +1,5 @@
 package com.openclassrooms.magicgithub;
 
-import com.openclassrooms.magicgithub.api.FakeApiServiceGenerator;
 import com.openclassrooms.magicgithub.di.Injection;
 import com.openclassrooms.magicgithub.model.User;
 import com.openclassrooms.magicgithub.repository.UserRepository;
@@ -33,17 +32,17 @@ public class UserRepositoryTest {
     
     @Test
     public void getUsersWithSuccess() {
-        List<User> usersActual = userRepository.getUsers();
+        List<User> usersActual = userRepository.getCustomers();
         List<User> usersExpected = FAKE_USERS;
         assertThat(usersActual, containsInAnyOrder(usersExpected.toArray()));
     }
 
     @Test
     public void generateRandomUserWithSuccess() {
-        userRepository.getUsers().clear();
+        userRepository.getCustomers().clear();
         userRepository.generateRandomUser();
-        User user = userRepository.getUsers().get(0);
-        assertEquals(1, userRepository.getUsers().size());
+        User user = userRepository.getCustomers().get(0);
+        assertEquals(1, userRepository.getCustomers().size());
         assertTrue(FAKE_USERS_RANDOM.stream().map(User::getAvatarUrl).collect(Collectors.toList()).contains(user.getAvatarUrl()));
         assertTrue(FAKE_USERS_RANDOM.stream().map(User::getId).collect(Collectors.toList()).contains(user.getId()));
         assertTrue(FAKE_USERS_RANDOM.stream().map(User::getLogin).collect(Collectors.toList()).contains(user.getLogin()));
@@ -54,8 +53,8 @@ public class UserRepositoryTest {
 
     @Test
     public void deleteUserWithSuccess() {
-        User userToDelete = userRepository.getUsers().get(0);
+        User userToDelete = userRepository.getCustomers().get(0);
         userRepository.deleteUser(userToDelete);
-        assertFalse(userRepository.getUsers().contains(userToDelete));
+        assertFalse(userRepository.getCustomers().contains(userToDelete));
     }
 }

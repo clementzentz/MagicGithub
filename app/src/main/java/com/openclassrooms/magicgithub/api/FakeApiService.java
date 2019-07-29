@@ -29,7 +29,11 @@ public class FakeApiService implements ApiService {
     public void generateRandomUser() {
         // TODO: A modifier
         Random rand = new Random();
-        users.add(FAKE_USERS_RANDOM.get(rand.nextInt(5)));
+        int a = rand.nextInt(5);
+        while(users.contains(FAKE_USERS_RANDOM.get(a))) {
+            a = rand.nextInt(5);
+        }
+        users.add(FAKE_USERS_RANDOM.get(a));
     }
 
     /**
